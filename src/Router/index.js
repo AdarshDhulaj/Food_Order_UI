@@ -7,6 +7,12 @@ import SignUp from '@/components/SignUp.vue'
 import FoodCom from '@/components/FoodCom.vue'
 import EditProfile from '@/components/EditProfile.vue'
 
+import AddFood from '@/components/AddFood.vue'
+import AddRestaurant from '@/components/AddRestaurant.vue'
+import RestaurantDetails from '@/components/RestaurantDetails.vue'
+import FoodDetails from '@/components/FoodDetails.vue'
+
+
 const routes = [
   {
     path: '/',
@@ -41,6 +47,38 @@ const routes = [
     path: '/EditProfile',
     name: 'EditProfile',
     component: EditProfile,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/AddFood',
+    name: 'AddFood',
+    component: AddFood,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/AddRestaurant',
+    name: 'AddRestaurant',
+    component: AddRestaurant,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/RestaurantDetails',
+    name: 'RestaurantDetails',
+    component: RestaurantDetails,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/FoodDetails',
+    name: 'FoodDetails',
+    component: FoodDetails,
     meta:{
         requireAuth:false
     }

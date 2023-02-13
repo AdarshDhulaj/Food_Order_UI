@@ -1,3 +1,4 @@
+
 <template>
   <div class="container bg-dark">
     <h1 class="form-title">Registration</h1>
@@ -149,8 +150,7 @@ export default {
           .then((data) => {
             console.log(data);
             alert("Ragistered Successfully...");
-        this.$router.push({ name: "Home" });}).catch(()=>{
-            alert("Something Went Wrong!");
+            this.$router.push({ name: "/login" });
           });
       } else {
         alert("Confirm password didn’t match. Try again.");
@@ -161,6 +161,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .container {
   width: 100%;
@@ -290,3 +291,4 @@ export default {
   }
 }
 </style>
+

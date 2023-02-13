@@ -2,7 +2,7 @@
 img,
 svg {
   vertical-align: middle;
-  height: 150px;
+ /* height: 150px;*/
 }
 
 .div1 {

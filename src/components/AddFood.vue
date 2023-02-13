@@ -3,10 +3,10 @@
       <div class="container ">
           <form action="#" @submit.prevent="addFood">
               <h2>Add Food Details</h2>
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                   <label for="inputId4" class="form-label">RestaurantId</label>
                   <input type="text" v-model="postData.RestoId" class="form-control" id="inputId4">
-                  </div>
+                  </div> -->
               <div class="col-md-6">
                   <label for="files" class="form-label">Food Images:</label>
                   <input type="file" @change="uploadFile" class="form-control" id="files" multiple >
@@ -35,11 +35,11 @@
                   <label class="col-sm-12">Food Status: </label>
                   <div class="col-sm-12">
                       <div class="form-check form-check-inline">
-                          <input class="form-check-input" v-model="postData.Flag" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">
+                          <input class="form-check-input" v-model="postData.Flag" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Available">
                           <label class="form-check-label" for="inlineRadio1">Available</label>
                       </div>
                       <div class="form-check form-check-inline">
-                          <input class="form-check-input" v-model="postData.Flag" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">
+                          <input class="form-check-input" v-model="postData.Flag" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Notavailable">
                           <label class="form-check-label" for="inlineRadio2">Not Available</label>
                       </div>
                   </div>
