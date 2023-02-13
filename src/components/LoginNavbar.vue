@@ -269,13 +269,14 @@ nav .logo.space {
       <button type="submit" class="fas fa-search"></button>
     </form>
 
-    <div class="logo1"  v-if="!isLoggedIn">
+    <div class="logo1"   v-if="!isLoggedIn">
       <div class="nav-items1">
         <li><router-link to="/login">Login</router-link></li>
         <li><router-link to="/signup">Sign-Up</router-link></li>
       </div>
     </div>
     <ProfilePic  v-if="isLoggedIn"/>
+    
   </nav>
 </template>
 <script>
@@ -300,5 +301,8 @@ export default {
     }
   }
   },
+  mounted(){
+    this.isLoggedIn= localStorage.getItem("user-info")!=null &&localStorage.getItem("user-info").length>0;
+  }
 };
 </script>

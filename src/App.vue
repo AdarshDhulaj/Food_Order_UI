@@ -14,7 +14,7 @@ export default {
     FooterCom
   },
   mounted(){
-    localStorage.setItem("user-info",null);
+    localStorage.setItem("user-info","");
   }
 };
 </script>

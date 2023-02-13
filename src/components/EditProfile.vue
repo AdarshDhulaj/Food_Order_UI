@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 form {
   width: 500px;
   margin: 10px;

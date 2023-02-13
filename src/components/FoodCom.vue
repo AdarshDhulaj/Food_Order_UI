@@ -163,9 +163,9 @@ export default {
       this.listItems = finalRes;
     },
   },
-  mounted() {
-    this.getData();
-  },
+  // mounted() {
+  //   this.getData();
+  // },
 };
 
 </script>
