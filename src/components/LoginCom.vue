@@ -203,7 +203,9 @@ export default {
       )
         .then((response) => response.text())
         .then((data) =>{ localStorage.setItem("user-info", data);
-        this.$router.push({ name: "Home" });}).catch(()=>{
+        this.$router.push({ name: "Home" });
+        alert("Login Successfull...");
+      }).catch(()=>{
           alert("Something Went Wrong!");
         });      
     },

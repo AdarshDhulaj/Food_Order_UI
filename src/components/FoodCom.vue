@@ -26,14 +26,14 @@ svg {
 }
 
 .FoodItems .foods {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin: 25px;
   padding: 10px;
   border-radius: 10px;
 }
 
 .FoodItems .foods:hover {
-  border: 3px solid white;
+  /* border: 3px solid white; */
   margin: 5px;
   padding: 10px;
   border-radius: 10px;

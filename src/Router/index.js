@@ -5,6 +5,7 @@ import LoginCom from '@/components/LoginCom.vue'
 import SignUp from '@/components/SignUp.vue'
 
 import FoodCom from '@/components/FoodCom.vue'
+import EditProfile from '@/components/EditProfile.vue'
 
 const routes = [
   {
@@ -32,6 +33,14 @@ const routes = [
     path: '/home',
     name: 'Foods',
     component: FoodCom,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/EditProfile',
+    name: 'EditProfile',
+    component: EditProfile,
     meta:{
         requireAuth:false
     }

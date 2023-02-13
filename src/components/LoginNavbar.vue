@@ -275,7 +275,7 @@ nav .logo.space {
         <li><router-link to="/signup">Sign-Up</router-link></li>
       </div>
     </div>
-    <ProfilePic />
+    <ProfilePic  v-if="isLoggedIn"/>
   </nav>
 </template>
 <script>
@@ -296,8 +296,7 @@ export default {
     {
       deep:true,
       handler(){
-        this.isLoggedIn= localStorage.getItem("user-info")!=null &&localStorage.getItem("user-info").length>0;     
-
+        this.isLoggedIn= localStorage.getItem("user-info")!=null &&localStorage.getItem("user-info").length>0;
     }
   }
   },

@@ -68,8 +68,14 @@
   width: 100%;
 }
 
+.sub-menu-link p router-link{
+    text-decoration: none;
+    color: black;
+}
+
 .sub-menu-link i {
   width: 40px;
+  color: black;
   background: white;
   border-radius: 50%;
   padding: 8px;
@@ -98,8 +104,12 @@
     @click="toggleMenu()"
   />
 
-  <div class="sub-menu-wrap" id="subMenu" v-bind:class="{'open-menu':isLogged}">
-    <div class="sub-menu" >
+  <div
+    class="sub-menu-wrap"
+    id="subMenu"
+    v-bind:class="{ 'open-menu': isLogged }"
+  >
+    <div class="sub-menu">
       <div class="user-info">
         <img src="@/Images/p.png" alt="" />
         <h4>ABC Panday</h4>
@@ -108,7 +118,7 @@
 
       <a href="#" class="sub-menu-link">
         <i class="fa-solid fa-user"></i>
-        <p>Edit Profile</p>
+        <p><router-link to="/EditProfile">Edit Profile</router-link></p>
         <span>></span>
       </a>
       <a href="#" class="sub-menu-link">
@@ -117,33 +127,33 @@
         <span>></span>
       </a>
       <a href="#" class="sub-menu-link">
-        <i class="fa-solid fa-headset"></i>
-        <p>Help & Support</p>
+        <i class="fa-solid fa-french-fries"></i>
+        <p>Orders</p>
         <span>></span>
       </a>
-      <a href="#" class="sub-menu-link">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <p>Logout</p>
+      <a href="#" class="sub-menu-link" v-on:click="logout">
+        <i class="fa-solid fa-right-from-bracket" ></i>
+        <p >Logout</p>
         <span>></span>
       </a>
     </div>
   </div>
 </template>
 
-<script >
-
-
-
+<script>
 export default {
-    data(){
-        return {
-            isLogged:false
-        }
+  data() {
+    return {
+      isLogged: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isLogged = !this.isLogged;
     },
-    methods:{
-   toggleMenu(){
-    this.isLogged=!this.isLogged;
-   }
+    logout(){
+        localStorage.clear();
     }
-}
+  },
+};
 </script>
