@@ -1,8 +1,8 @@
-<style>
+<style scoped>
 img,
 svg {
   vertical-align: middle;
- /* height: 150px;*/
+  /* height: 150px;*/
 }
 
 .div1 {
@@ -34,11 +34,15 @@ svg {
 
 .FoodItems .foods:hover {
   /* border: 3px solid white; */
-  margin: 5px;
+  margin: 20px;
   padding: 10px;
   border-radius: 10px;
   background: lightseagreen;
   color: black;
+}
+
+.FoodItems .foods .desc {
+  margin: 10px 20px;
 }
 
 img {
@@ -49,14 +53,17 @@ img {
   object-fit: cover;
 }
 
+.name .cost {
+  display: inline-block;
+}
 .name {
   font-size: 20px;
-  display: flex;
+  display: start;
   padding-left: 40px;
 }
 
 .cost {
-  display: flex;
+  display: end;
   padding-top: -100px;
   padding-left: 220px;
 }
@@ -117,7 +124,6 @@ button:hover {
     font-size: 15px;
     font-weight: 700;
     display: flex;
-    padding-left: 40px;
   }
 
   .cost {
@@ -138,11 +144,10 @@ button:hover {
     <p class="d-flex justify-content-left">Welcome To The FoodyZone........!</p>
     <div class="FoodItems">
       <div class="foods" v-for="item in listItems" :key="item.items">
-        <img src="{{ item.Image }} " alt="" />
+        <img src="{{ item.Image }}" alt="" />
         <div class="name">{{ item.FoodName }}</div>
         <div class="cost">₹{{ item.Price }}</div>
         <div class="desc">{{ item.Description }}</div>
-        <span class="more">more...</span>
         <button v-on:click="OrderItNow(food)">Order Now</button>
       </div>
     </div>
@@ -163,9 +168,8 @@ export default {
       this.listItems = finalRes;
     },
   },
-   mounted() {
-     this.getData();
-   },
+  mounted() {
+    this.getData();
+  },
 };
-
 </script>

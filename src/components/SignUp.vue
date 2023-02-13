@@ -38,6 +38,18 @@
           />
         </div>
         <div class="user-input-box">
+          <label for="mobileNo">Phone Number</label>
+          <input
+            type="text"
+            id="mobileNo"
+            name="mobileNo"
+            placeholder="Enter Phone Number"
+            v-model="postData.mobileNo"
+            required
+          />
+        </div>
+
+        <div class="user-input-box">
           <label for="password">password</label>
           <input
             type="password"
@@ -48,6 +60,7 @@
             required
           />
         </div>
+        
         <div class="user-input-box">
           <label for="confirmpassword">Confirm password</label>
           <input
@@ -56,17 +69,6 @@
             name="confirmpassword"
             placeholder="Confirm password"
             v-model="postData.cpassword"
-            required
-          />
-        </div>
-        <div class="user-input-box">
-          <label for="mobileNo">Phone Number</label>
-          <input
-            type="text"
-            id="mobileNo"
-            name="mobileNo"
-            placeholder="Enter Phone Number"
-            v-model="postData.mobileNo"
             required
           />
         </div>
@@ -149,8 +151,9 @@ export default {
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            localStorage.setItem("user-info", data);
             alert("Ragistered Successfully...");
-            this.$router.push({ name: "/login" });
+            this.$router.push({ name: "Home" });
           });
       } else {
         alert("Confirm password didn’t match. Try again.");
@@ -162,12 +165,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
-  width: 100%;
+  width: 60%;
   max-width: 650px;
   background: transparent;
-  padding: 28px;
+  padding: 0 auto;
   align-items: center;
   border-radius: 10px;
   border: 2px solid white;
