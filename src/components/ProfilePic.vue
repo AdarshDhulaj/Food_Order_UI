@@ -123,12 +123,12 @@
       </a>
       <a href="#" class="sub-menu-link">
         <i class="fa-regular fa-address-book"></i>
-        <p>Address</p>
+        <p><router-link to="/address">Address</router-link></p>
         <span>></span>
       </a>
       <a href="#" class="sub-menu-link">
         <i class="fa-solid fa-french-fries"></i>
-        <p>Orders</p>
+        <p><router-link to="/OrderDetails">Orders</router-link></p>
         <span>></span>
       </a>
       <a href="#" class="sub-menu-link" v-on:click="logout">

@@ -15,6 +15,11 @@ svg {
   font-size: 30px;
   padding: 20px 0px 0 21px;
 }
+
+.form-control{
+  max-width: 500px;
+}
+
 .FoodItems {
   margin: 5px;
   padding: 5px;
@@ -156,13 +161,15 @@ button:hover {
 
 <template>
   <div class="div1">
+      <input type="search"  v-model="searchKey" class="form-control me-2" placeholder="Search" required />
+
     <p class="d-flex justify-content-left">Welcome To The FoodyZone........!</p>
     <div class="FoodItems">
-      <div class="foods" v-for="item in listItems" :key="item.items">
-        <img :src="require('@/Images/' + item.Image)" alt="" />
-        <div class="name">{{ item.FoodName }}</div>
-        <div class="name">₹{{ item.Price }}</div>
-        <div class="desc">{{ item.Description }}</div>
+      <div class="foods" v-for="item in listItems" :key="item.foodId">
+        <img :src="require('@/Images/' + item.image)" alt="" />
+        <div class="name">{{ item.foodName }}</div>
+        <div class="name">₹{{ item.price }}</div>
+        <div class="desc">{{ item.description }}</div>
         <button><router-link to="/AddOrder">Order Now</router-link></button>
       </div>
     </div>
@@ -174,17 +181,23 @@ export default {
     return {
       FoodItems: [],
       listItems: [],
+      searchKey:"",
     };
   },
   methods: {
-    async getData() {
-      const res = await fetch("http://localhost:5250/api/Foods");
+    async getData(key) {
+      const res = await fetch(`http://localhost:5201/api/Search/?name=${key}`);
       const finalRes = await res.json();
       this.listItems = finalRes;
     },
   },
   mounted() {
-    this.getData();
+    this.getData(" ");
   },
+  watch:{
+     searchKey(newValue){
+     this.getData(newValue);
+    }
+  }
 };
 </script>

@@ -14,6 +14,8 @@ import FoodDetails from '@/components/FoodDetails.vue'
 
 import AddOrder from '@/components/AddOrder.vue'
 import OrderDetails from '@/components/OrderDetails.vue'
+2
+import AddressCom from '@/components/AddressCom.vue'
 const routes = [
   {
     path: '/',
@@ -40,6 +42,14 @@ const routes = [
     path: '/home',
     name: 'Foods',
     component: FoodCom,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/address',
+    name: 'AddressCom',
+    component: AddressCom,
     meta:{
         requireAuth:false
     }
