@@ -150,10 +150,13 @@ export default {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            if (data == "AllreadyExit") {
+            alert("Account Allready Exit! Try to login?");
+          } else {
             localStorage.setItem("user-info", data);
             alert("Ragistered Successfully...");
             this.$router.push({ name: "Home" });
+          }
           });
       } else {
         alert("Confirm password didn’t match. Try again.");
