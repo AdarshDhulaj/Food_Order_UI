@@ -73,7 +73,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
     h3{
       text-align:"center";
       padding-top:1px;

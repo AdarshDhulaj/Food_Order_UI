@@ -160,7 +160,7 @@
   },
   };
   </script>
-  <style>
+  <style scoped>
   .row {
     justify-content: center;
     widows: 1000px;

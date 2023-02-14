@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 .user-pic {
   width: 50px;
   height: 50px;

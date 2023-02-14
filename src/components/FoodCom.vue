@@ -26,10 +26,10 @@ svg {
 }
 
 .FoodItems .foods {
-  /* border: 1px solid white; */
-  margin: 25px;
-  padding: 10px;
+  
+  /* margin: 1rem; */
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .FoodItems .foods:hover {
@@ -41,8 +41,23 @@ svg {
   color: black;
 }
 
+.FoodItems .foods button {
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.FoodItems .foods button a {
+  text-decoration: none;
+  color: black;
+}
+
 .FoodItems .foods .desc {
   margin: 10px 20px;
+}
+
+.FoodItems .foods .name {
+  display: inline-block;
 }
 
 img {
@@ -59,7 +74,7 @@ img {
 .name {
   font-size: 20px;
   display: start;
-  padding-left: 40px;
+  padding: 0 40px;
 }
 
 .cost {
@@ -144,11 +159,11 @@ button:hover {
     <p class="d-flex justify-content-left">Welcome To The FoodyZone........!</p>
     <div class="FoodItems">
       <div class="foods" v-for="item in listItems" :key="item.items">
-        <img src="{{ item.Image }}" alt="" />
+        <img :src="require('@/Images/' + item.Image)" alt="" />
         <div class="name">{{ item.FoodName }}</div>
-        <div class="cost">₹{{ item.Price }}</div>
+        <div class="name">₹{{ item.Price }}</div>
         <div class="desc">{{ item.Description }}</div>
-        <button ><router-link to="/AddOrder">Order Now</router-link></button>
+        <button><router-link to="/AddOrder">Order Now</router-link></button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 .bottom center{
   padding: 5px;

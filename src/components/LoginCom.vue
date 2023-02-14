@@ -1,5 +1,5 @@
 <!-- <link rel="stylesheet" href="./style.css"> -->
-<style>
+<style scoped>
 section {
   display: flex;
   justify-content: center;
@@ -202,9 +202,14 @@ export default {
         `http://localhost:5039/api/Login/login?email=${this.postData.email}&password=${this.postData.password}`
       )
         .then((response) => response.text())
-        .then((data) =>{ localStorage.setItem("user-info", data);
-        this.$router.push({ name: "Home" });
-        alert("Login Successfull...");
+        .then((data) =>{ 
+          if (data == "Fail") {
+            alert("Login UnSuccessfull...");
+          } else {
+            localStorage.setItem("user-info", data);
+            alert("Login Successfull...");
+            this.$router.push({ name: "Home" });
+          }
       }).catch(()=>{
           alert("Something Went Wrong!");
         });      
