@@ -12,7 +12,8 @@ import AddRestaurant from '@/components/AddRestaurant.vue'
 import RestaurantDetails from '@/components/RestaurantDetails.vue'
 import FoodDetails from '@/components/FoodDetails.vue'
 
-
+import AddOrder from '@/components/AddOrder.vue'
+import OrderDetails from '@/components/OrderDetails.vue'
 const routes = [
   {
     path: '/',
@@ -79,6 +80,22 @@ const routes = [
     path: '/FoodDetails',
     name: 'FoodDetails',
     component: FoodDetails,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/AddOrder',
+    name: 'AddOrder',
+    component: AddOrder,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/OrderDetails',
+    name: 'OrderDetails',
+    component: OrderDetails,
     meta:{
         requireAuth:false
     }

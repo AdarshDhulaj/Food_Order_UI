@@ -148,7 +148,7 @@ button:hover {
         <div class="name">{{ item.FoodName }}</div>
         <div class="cost">₹{{ item.Price }}</div>
         <div class="desc">{{ item.Description }}</div>
-        <button v-on:click="OrderItNow(food)">Order Now</button>
+        <button ><router-link to="/AddOrder">Order Now</router-link></button>
       </div>
     </div>
   </div>
