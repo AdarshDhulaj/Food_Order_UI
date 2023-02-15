@@ -41,32 +41,13 @@ label {
   <div class="container">
     <form action="#" @submit.prevent="addOrder">
       <h2>Place Order Here</h2>
-
       <div class="col-md-12">
-        <label for="inputId4" class="form-label">Email</label>
+        <label for="inputName4" class="form-label">FoodName</label>
         <input
           type="text"
-          v-model="postData.Email"
-          class="form-control"
-          id="inputId4"
-        />
-      </div>
-      <div class="col-md-12">
-        <label for="inputName4" class="form-label">FoodId</label>
-        <input
-          type="number"
-          v-model="postData.FoodId"
+          v-model="postData.FoodName"
           class="form-control"
           id="inputName4"
-        />
-      </div>
-      <div class="col-md-12">
-        <label for="inputRest4" class="form-label">RestoId</label>
-        <input
-          type="number"
-          v-model="postData.RestoId"
-          class="form-control"
-          id="inputRest4"
         />
       </div>
       <div class="col-md-12">
@@ -98,7 +79,7 @@ label {
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-dark">
-            <router-link to="/OrderDetails">Add Order</router-link>
+            <router-link to="/Home">Add Order</router-link>
           </button>
         </div>
       </div>
@@ -110,9 +91,7 @@ export default {
   data() {
     return {
       postData: {
-        Email: "",
-        FoodId: "",
-        RestoId: "",
+        FoodName: "",
         Quantity: "",
         Price: "",
         Total: 0,
@@ -122,9 +101,7 @@ export default {
   methods: {
     addOrder() {
       const data = JSON.stringify({
-        Email: this.postData.Email,
-        FoodId: this.postData.FoodId,
-        RestoId: this.postData.RestoId,
+        FoodName: this.postData.FoodName,
         Quantity: this.postData.Quantity,
         Price: this.postData.Price,
         // Total:this.postData.Price * this.postData.Quantity

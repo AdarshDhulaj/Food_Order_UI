@@ -17,12 +17,9 @@
   
           <tr>
   
-            <th scope="col">Email</th>
   
-            <th scope="col">FoodId</th>
-  
-            <th scope="col">RestoId</th>
-  
+            <th scope="col">FoodName</th>
+    
             <th scope="col">Quantity</th>
   
             <th scope="col">Price</th>
@@ -40,14 +37,7 @@
   
           <tr v-for="order in placeorders " v-bind:key="order.orders">
   
-            <!--<td>{{ rest.RestoId }}</td>-->
-  
-            <td>{{ order.Email }}</td>
-  
-            <td>{{ order.FoodId }}</td>
-  
-            <td>{{ order.RestoId }}</td>
-  
+            <td>{{ order.FoodName }}</td>  
             <td>{{ order.Quantity }}</td>
   
             <td>{{ order.Price }}</td>

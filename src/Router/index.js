@@ -14,7 +14,7 @@ import FoodDetails from '@/components/FoodDetails.vue'
 
 import AddOrder from '@/components/AddOrder.vue'
 import OrderDetails from '@/components/OrderDetails.vue'
-2
+
 import AddressCom from '@/components/AddressCom.vue'
 const routes = [
   {
