@@ -38,12 +38,12 @@
           <tr v-for="order in placeorders " v-bind:key="order.orders">
   
             <td>{{ order.FoodName }}</td>  
-            <td>{{ order.Quantity }}</td>
+            <td><input v-model="order.Quantity" /></td>
   
             <td>{{ order.Price }}</td>
   
-            <td>{{ order.Total }}</td>
-            <td><button type="button" class="btn btn-dark">Update
+            <td>{{ order.Price * order.Quantity }}</td>
+            <td><button type="button" @click="updatePost(order)" class="btn btn-dark">Update
             </button></td>       
             <td>
             </td>
@@ -77,31 +77,31 @@
   //     })
   //   })
   // },
-  //       updatePost() {
-  //       fetch("http://localhost:5295/api/Order", {
-  //         method: "PUT",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           Email: this.Email,
-  //             FoodId: this.FoodId,
-  //             RestoId: this.RestoId,
-  //             Quantity: this.Quantity,
-  //             Price: this.Price,
-  //         }),
-  //       })
-  //         .then((response) => response.json())
-  //         .then((data) => console.log(data));
-  //     },
-  //   },
+        updatePost(order) {
+        fetch(`http://localhost:5295/api/Order/${order.OrderId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(order)
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      },
+    // },
     },
     mounted: function () 
     { 
       this.getData();
      // this.deleteOrder();
      //this.UpdatePost();
-     }
+     },
+     props:["id"],
+  computed:{
+       Total(){
+        return this.postData.Price* this.postData.Quantity;
+       }
+  },
   }
   </script>
   <style scoped>

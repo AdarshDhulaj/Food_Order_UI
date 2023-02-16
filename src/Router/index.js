@@ -95,12 +95,13 @@ const routes = [
     }
   },
   {
-    path: '/AddOrder',
+    path: '/AddOrder/:id',
     name: 'AddOrder',
     component: AddOrder,
     meta:{
         requireAuth:false
-    }
+    },
+    props:true
   },
   {
     path: '/OrderDetails',

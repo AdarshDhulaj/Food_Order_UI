@@ -9,7 +9,7 @@
                   </div> -->
               <div class="col-md-6">
                   <label for="files" class="form-label">Food Images:</label>
-                  <input type="file" @change="uploadFile" class="form-control" id="files" multiple >
+                  <input type="file" ref="fileRef" @change="uploadFile" class="form-control" id="files" multiple >
               </div>
               <div class="col-md-6">
               <label for="inputName4" class="form-label">Food Name</label>
@@ -70,9 +70,10 @@
     },
     methods: {
       addFood() {
+        
         const data = JSON.stringify({
               RestoId:this.postData.RestoId,
-              Image:this.postData.Image,
+              Image:this.$refs.fileRef.files[0].name,
               FoodName:this.postData.FoodName,
               Description:this.postData.Description,
               Price:this.postData.Price,
@@ -117,14 +118,14 @@
   .container{
       width: 100%;
       max-width: 700px;
-      /* background: rgba(0, 0, 0, 0.5); */
+    
       background: transparent;
       padding: 28px;
-      /* margin: 0 28px; */
+     
       border-radius: 10px;
       border: 2px solid white;
 
-      /* box-shadow: inset -2px 2px 2px white; */
+    
   }
   .foodtable .container{
     background: rgba(0, 0, 0, 0.699);

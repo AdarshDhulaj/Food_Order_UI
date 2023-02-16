@@ -48,6 +48,7 @@ label {
           v-model="postData.FoodName"
           class="form-control"
           id="inputName4"
+          disabled
         />
       </div>
       <div class="col-md-12">
@@ -66,20 +67,16 @@ label {
           v-model="postData.Price"
           class="form-control"
           id="inputPrice4"
+          disabled
         />
       </div>
       <div class="col-md-12">
-        <label for="Total" class="form-label">Total</label>
-        <input
-          type="number"
-          v-bind="postData.Total"
-          class="form-control mb-3"
-          id="inputTota;"
-        />
+        <label for="Total" class="form-label">Total : {{ Total}}</label>
+        
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-dark">
-            <router-link to="/Home">Add Order</router-link>
+            Add Order
           </button>
         </div>
       </div>
@@ -91,24 +88,34 @@ export default {
   data() {
     return {
       postData: {
+        FoodId: "",
         FoodName: "",
-        Quantity: "",
+        Quantity: 1,
         Price: "",
-        Total: 0,
       },
     };
   },
+  props:["id"],
+  computed:{
+       Total(){
+        return this.postData.Price* this.postData.Quantity;
+       }
+  },
   methods: {
+   fetchFood(){
+      fetch(`http://localhost:5250/api/Foods/${this.id}`)
+        .then((response) => response.json())
+        .then((data) =>{
+          this.postData.FoodName=data.FoodName;
+          this.postData.Price=data.Price;
+        });
+    },
     addOrder() {
       const data = JSON.stringify({
         FoodName: this.postData.FoodName,
         Quantity: this.postData.Quantity,
         Price: this.postData.Price,
-        // Total:this.postData.Price * this.postData.Quantity
-
-        Total() {
-          this.Total = this.postData.Price * this.postData.Quantity;
-        },
+        Total:this.Total        
       });
 
       window.console.log(data);
@@ -123,5 +130,8 @@ export default {
         .then((data) => console.log(data));
     },
   },
+  mounted(){
+this.fetchFood();
+  }
 };
 </script>

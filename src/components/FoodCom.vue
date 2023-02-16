@@ -166,11 +166,11 @@ button:hover {
     <p class="d-flex justify-content-left">Welcome To The FoodyZone........!</p>
     <div class="FoodItems">
       <div class="foods" v-for="item in listItems" :key="item.foodId">
-        <img :src="require('@/Images/' + item.image)" alt="" />
+        <img :src="require('@/Images/' + item.image)"  />
         <div class="name">{{ item.foodName }}</div>
         <div class="name">₹{{ item.price }}</div>
         <div class="desc">{{ item.description }}</div>
-        <button><router-link to="/AddOrder">Order Now</router-link></button>
+        <button v-if="isLoggedIn" @click="addOrder(item.foodId)">Order Now</button>
       </div>
     </div>
   </div>
@@ -182,9 +182,13 @@ export default {
       FoodItems: [],
       listItems: [],
       searchKey:"",
+      isLoggedIn:false
     };
   },
   methods: {
+    addOrder(id){
+   this.$router.push({'name':'AddOrder',params:{id:id}});
+    },
     async getData(key) {
       const res = await fetch(`http://localhost:5201/api/Search/?name=${key}`);
       const finalRes = await res.json();
@@ -193,11 +197,19 @@ export default {
   },
   mounted() {
     this.getData(" ");
+    this.isLoggedIn= localStorage.getItem("user-info")!=null &&localStorage.getItem("user-info").length>0;
   },
   watch:{
      searchKey(newValue){
      this.getData(newValue);
+    },
+    $route:
+    {
+      deep:true,
+      handler(){
+        this.isLoggedIn= localStorage.getItem("user-info")!=null &&localStorage.getItem("user-info").length>0;
     }
+  }
   }
 };
 </script>
