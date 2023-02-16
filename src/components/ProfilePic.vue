@@ -131,6 +131,11 @@
         <p><router-link to="/OrderDetails">Orders</router-link></p>
         <span>></span>
       </a>
+      <a href="#" class="sub-menu-link">
+        <i class="fa-solid fa-rectangle-history"></i>
+        <p><router-link to="/OrderHistroy">Order Histroy</router-link></p>
+        <span>></span>
+      </a>
       <a href="#" class="sub-menu-link" v-on:click="logout">
         <i class="fa-solid fa-right-from-bracket" ></i>
         <p >Logout</p>

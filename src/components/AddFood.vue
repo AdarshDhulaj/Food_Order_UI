@@ -95,6 +95,9 @@
           alert("Something Went Wrong!");
         });
       },
+    },
+    async mounted(){
+     await console.log(this.params.RestoId)
     }
   }
   </script>

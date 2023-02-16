@@ -43,8 +43,9 @@
             <td>{{ order.Price }}</td>
   
             <td>{{ order.Price * order.Quantity }}</td>
-            <td><button type="button" @click="updatePost(order)" class="btn btn-dark">Update
-            </button></td>       
+            <td><button @click="updatePost(order)" ><i class="fa-regular fa-pen-to-square"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button><i class="fa-solid fa-xmark"></i></button>
+          </td>       
             <td>
             </td>
   
@@ -123,5 +124,10 @@
   color: aliceblue;
   }
   
+  button{
+    border: none;
+    width: 30px;
+    height: 30px;
+  }
   </style>
   

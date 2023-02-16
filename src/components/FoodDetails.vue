@@ -3,7 +3,7 @@
       <h3 >Details Of Food</h3>
   
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-dark" ><router-link to="/AddFood">Add Food</router-link></button>
+        <button type="button" class="btn btn-dark"  ><router-link to="/AddFood">Add Food</router-link></button>
       </div>
   
         <table class="table table-striped">

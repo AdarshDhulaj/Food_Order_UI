@@ -1,16 +1,7 @@
 <template>
     <div class="addrest w-50">
-      <form action="#" @submit.prevent="setPost">
-        <h2>Add Restaurant Details</h2>
-        <div class="col-md-12">
-          <label for="inputImage4" class="form-label">Restaurant Image</label>
-          <input
-            type="file"
-            class="form-control mb-3"
-            id="inputImage4"
-            ref="fileRef" @change="uploadFile"
-          />
-        </div>
+      <form action="#" >
+        <h2>Update Restaurant Details</h2>
         <div class="col-md-12">
           <label for="inputName4" class="form-label">Restaurant Name</label>
           <input
@@ -104,7 +95,7 @@
           </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-dark">Add Restaurant</button>
+          <button type="submit" v-on:click="updateResto" class="btn btn-dark"><router-link to="/RestaurantDetails">Update Restaurant</router-link> </button>
         </div>
       </form>
     </div>
@@ -115,7 +106,6 @@
   data() {
     return {
       postData: {
-        Image: "",
         Name: "",
         Address: "",
         Owner: "",
@@ -127,10 +117,23 @@
     };
   },
   methods: {
-    props:["id"],
-    setPost() {
-      const data = JSON.stringify({
-        Image: this.$refs.fileRef.files[0].name,
+    async fetchResto(){
+      await fetch(`http://localhost:5250/api/Restaurent/${this.$route.params.id}`)
+        .then((response) => response.json())
+        .then((data) =>{
+            
+          this.postData.Name=data.Name;
+          this.postData.Address=data.Address;
+          this.postData.Owner=data.Owner;
+          this.postData.OpenTime=data.OpenTime;
+          this.postData.CloseTime=data.CloseTime;
+          this.postData.Category=data.Category;
+          this.postData.Flag=data.Flag;
+        });
+    },
+    updateResto(){
+        const data = JSON.stringify({
+    
         Name: this.postData.Name,
         Address: this.postData.Address,
         Owner: this.postData.Owner,
@@ -140,20 +143,24 @@
         Flag: this.postData.Flag,
       });
       window.console.log(data);
-      fetch("http://localhost:5250/api/Restaurent", {
-        method: "POST",
+      fetch(`http://localhost:5250/api/Restaurent/${this.$route.params.id}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: data,
       })
         .then((response) => response.json())
         .then((data) =>{
           console.log(data);
-          alert("Restaurant Added successfully..");
+          alert("Restaurant Details Updated successfully..");
           this.$router.push({ name: "RestaurantDetails" });}).catch(()=>{
           alert("Something Went Wrong!");
         });
-      }
+      } 
   },
+  mounted(){
+    console.log(this.$route.params.id)
+    this.fetchResto();
+  }
   };
   </script>
   <style scoped>

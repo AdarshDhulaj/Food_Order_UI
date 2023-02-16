@@ -76,7 +76,7 @@ label {
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-dark">
-            Add Order
+           Add Order 
           </button>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default {
   },
   methods: {
    fetchFood(){
-      fetch(`http://localhost:5250/api/Foods/${this.id}`)
+      fetch(`http://localhost:5250/api/Restaurent/${this.id}`)
         .then((response) => response.json())
         .then((data) =>{
           this.postData.FoodName=data.FoodName;
@@ -112,6 +112,7 @@ export default {
     },
     addOrder() {
       const data = JSON.stringify({
+      
         FoodName: this.postData.FoodName,
         Quantity: this.postData.Quantity,
         Price: this.postData.Price,
@@ -119,7 +120,7 @@ export default {
       });
 
       window.console.log(data);
-      fetch("http://localhost:5295/api/Order", {
+      fetch("http://localhost:5250/api/Restaurent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -131,6 +132,7 @@ export default {
     },
   },
   mounted(){
+    
 this.fetchFood();
   }
 };

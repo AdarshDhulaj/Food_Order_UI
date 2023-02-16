@@ -126,3 +126,49 @@ export default {
   },
 };
 </script>
+<!-- <script>
+  export default {
+    name: 'SaveProfile',
+    data() {
+      return {
+        placeorders: []
+      }
+    },
+    props:["id"],
+    methods: {
+      fetchUser(){
+      fetch(`http://localhost:5039/api/Login/login/${this.id}`)
+        .then((response) => response.json())
+        .then((data) =>{
+          this.postData.FoodName=data.FoodName;
+          this.postData.Price=data.Price;
+        });
+    },
+
+        updatePost(order) {
+        fetch(`http://localhost:5295/api/Order/${order.OrderId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(order)
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      },
+    // },
+    },
+    mounted: function () 
+    { 
+      this.getData();
+     // this.deleteOrder();
+     //this.UpdatePost();
+     },
+     props:["id"],
+  computed:{
+       Total(){
+        return this.postData.Price* this.postData.Quantity;
+       }
+  },
+  }
+  </script> -->

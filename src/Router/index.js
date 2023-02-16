@@ -16,6 +16,9 @@ import AddOrder from '@/components/AddOrder.vue'
 import OrderDetails from '@/components/OrderDetails.vue'
 
 import AddressCom from '@/components/AddressCom.vue'
+import OrderHistroy from '@/components/OrderHistroy.vue'
+import AddAddress from '@/components/AddAddress.vue'
+import updateRestaurant from '@/components/updateRestaurant.vue'
 const routes = [
   {
     path: '/',
@@ -55,6 +58,14 @@ const routes = [
     }
   },
   {
+    path: '/addaddress',
+    name: 'AddAddress',
+    component: AddAddress,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
     path: '/EditProfile',
     name: 'EditProfile',
     component: EditProfile,
@@ -74,6 +85,14 @@ const routes = [
     path: '/AddRestaurant',
     name: 'AddRestaurant',
     component: AddRestaurant,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/UpdateRestaurant/:id',
+    name: 'UpdateRestaurant',
+    component: updateRestaurant,
     meta:{
         requireAuth:false
     }
@@ -107,6 +126,14 @@ const routes = [
     path: '/OrderDetails',
     name: 'OrderDetails',
     component: OrderDetails,
+    meta:{
+        requireAuth:false
+    }
+  },
+  {
+    path: '/OrderHistroy',
+    name: 'OrderHistroy',
+    component: OrderHistroy,
     meta:{
         requireAuth:false
     }
