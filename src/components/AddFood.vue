@@ -57,7 +57,7 @@
     data() {
       return {
         postData: {
-          RestoId:'',
+          // RestoId:'',
           Image:'',
           FoodName:'',
           Description:'',
@@ -72,7 +72,7 @@
       addFood() {
         
         const data = JSON.stringify({
-              RestoId:this.postData.RestoId,
+              // RestoId:this.$router.params.RestoId,
               Image:this.$refs.fileRef.files[0].name,
               FoodName:this.postData.FoodName,
               Description:this.postData.Description,
@@ -96,8 +96,8 @@
         });
       },
     },
-    async mounted(){
-     await console.log(this.params.RestoId)
+   mounted(){
+      console.log(this.$router.params.RestoId)
     }
   }
   </script>

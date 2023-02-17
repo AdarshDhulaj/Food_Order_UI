@@ -76,7 +76,7 @@ label {
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-dark">
-           Add Order 
+           Add Order  
           </button>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default {
   data() {
     return {
       postData: {
-        FoodId: "",
+        FoodId: this.$route.params.id,
         FoodName: "",
         Quantity: 1,
         Price: "",
@@ -103,11 +103,12 @@ export default {
   },
   methods: {
    fetchFood(){
-      fetch(`http://localhost:5250/api/Restaurent/${this.id}`)
+      fetch(`http://localhost:5250/api/Foods/${this.postData.FoodId}`)
         .then((response) => response.json())
         .then((data) =>{
           this.postData.FoodName=data.FoodName;
           this.postData.Price=data.Price;
+          console.log(data);
         });
     },
     addOrder() {
@@ -120,7 +121,7 @@ export default {
       });
 
       window.console.log(data);
-      fetch("http://localhost:5250/api/Restaurent", {
+      fetch("http://localhost:5295/api/Order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +133,7 @@ export default {
     },
   },
   mounted(){
-    
+    console.log( this.$route.params.id)
 this.fetchFood();
   }
 };

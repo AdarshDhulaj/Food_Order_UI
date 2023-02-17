@@ -74,12 +74,13 @@ const routes = [
     }
   },
   {
-    path: '/AddFood',
+    path: '/AddFood/:id',
     name: 'AddFood',
     component: AddFood,
     meta:{
         requireAuth:false
-    }
+    },
+    props:true
   },
   {
     path: '/AddRestaurant',

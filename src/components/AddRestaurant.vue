@@ -3,15 +3,6 @@
       <form action="#" @submit.prevent="setPost">
         <h2>Add Restaurant Details</h2>
         <div class="col-md-12">
-          <label for="inputImage4" class="form-label">Restaurant Image</label>
-          <input
-            type="file"
-            class="form-control mb-3"
-            id="inputImage4"
-            ref="fileRef" @change="uploadFile"
-          />
-        </div>
-        <div class="col-md-12">
           <label for="inputName4" class="form-label">Restaurant Name</label>
           <input
             type="text"
@@ -115,7 +106,6 @@
   data() {
     return {
       postData: {
-        Image: "",
         Name: "",
         Address: "",
         Owner: "",
@@ -130,7 +120,6 @@
     props:["id"],
     setPost() {
       const data = JSON.stringify({
-        Image: this.$refs.fileRef.files[0].name,
         Name: this.postData.Name,
         Address: this.postData.Address,
         Owner: this.postData.Owner,

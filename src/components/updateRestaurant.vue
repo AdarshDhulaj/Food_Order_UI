@@ -106,6 +106,7 @@
   data() {
     return {
       postData: {
+        RestoId:this.$route.params.id,
         Name: "",
         Address: "",
         Owner: "",
@@ -121,7 +122,6 @@
       await fetch(`http://localhost:5250/api/Restaurent/${this.$route.params.id}`)
         .then((response) => response.json())
         .then((data) =>{
-            
           this.postData.Name=data.Name;
           this.postData.Address=data.Address;
           this.postData.Owner=data.Owner;
@@ -131,9 +131,8 @@
           this.postData.Flag=data.Flag;
         });
     },
-    updateResto(){
+    async updateResto(){
         const data = JSON.stringify({
-    
         Name: this.postData.Name,
         Address: this.postData.Address,
         Owner: this.postData.Owner,
@@ -143,7 +142,7 @@
         Flag: this.postData.Flag,
       });
       window.console.log(data);
-      fetch(`http://localhost:5250/api/Restaurent/${this.$route.params.id}`, {
+      await fetch(`http://localhost:5250/api/Restaurent/${this.postData.RestoId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: data,
